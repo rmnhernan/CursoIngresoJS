@@ -3,11 +3,12 @@ y luego mostrarlo por 'alert' al presionar el botón  'mostrar'*/
 function mostrar()
 {
 
-    var nombre;
+var nombre;
 
-nombre = prompt();
+nombre = prompt()
 
-alert(nombre);
+alert(nombre)
+
 
 
 	
