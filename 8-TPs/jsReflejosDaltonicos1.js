@@ -8,6 +8,12 @@ var ColorSecreto;
 var tiempoInicio;
 function comenzar()
 {
+    random = math.random() * 10 + 1
+
+    
+
+
+
 
 	
 
