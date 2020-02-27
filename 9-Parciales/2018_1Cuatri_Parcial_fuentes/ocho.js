@@ -16,17 +16,22 @@ function mostrar()
 
         
 
-        } while (isNaN(numero));
+        } while (isNaN(numero) || numero < - 100 || numero > 100);
 
         do{
             letra = prompt("Ingresa una letra");
-        } while(!isNaN(letra) || numero < - 100 || numero > 100);
+        } while(!isNaN(letra));
 
         //Punto A
 
         respuesta = confirm("Desea continuar?")
 
     } while (respuesta);
+
+    if ()    
+
+
+   }
 
 
 
