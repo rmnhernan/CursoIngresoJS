@@ -6,7 +6,7 @@ var respuesta;
 var maxReservas;
 var primeraVez = true
 var maxNombre
-var maxDias
+var maxDiasEstadia
 
 
 function mostrar()
@@ -23,58 +23,49 @@ do{
         }
     } while (!isNaN(nombreHuesped));
 
-        do{
-            cantidadPersonas = prompt("Ingrese la cantidad de personas");
-            cantidadPersonas = parseInt(cantidadPersonas);
-            if (cantidadPersonas > 15){
-                cantidadPersonas = alert("No se permiten mas de 15 huespedes");
+    do{
+        cantidadPersonas = prompt("Ingrese la cantidad de personas");
+        cantidadPersonas = parseInt(cantidadPersonas);
+        if (cantidadPersonas > 15){
+            cantidadPersonas = alert("No se permiten mas de 15 huespedes");
             }
-        } while (isNaN(cantidadPersonas) || cantidadPersonas < 1 || cantidadPersonas > 16);
+    } while (isNaN(cantidadPersonas) || cantidadPersonas < 1 || cantidadPersonas > 16);
 
-            do{
-                cantidadDiasEstadia = prompt("Ingrese sus dias de estadía");
-                cantidadDiasEstadia = parseInt(cantidadDiasEstadia);
-                if(cantidadDiasEstadia > 35){
-                    cantidadDiasEstadia = alert("La reserva máxima es de 35 días");
-                }
+    do{
+        cantidadDiasEstadia = prompt("Ingrese sus dias de estadía");
+        cantidadDiasEstadia = parseInt(cantidadDiasEstadia);
 
-            } while (isNaN(cantidadDiasEstadia) || cantidadDiasEstadia < 0 || cantidadDiasEstadia > 36);
+        if(cantidadDiasEstadia > 35){
+            cantidadDiasEstadia = alert("La reserva máxima es de 35 días");
+        }
 
-                do{
-                    formaPago = prompt("ingrese su método de pago (Efectivo/Tarjeta/QR)").toLowerCase();
+    } while (isNaN(cantidadDiasEstadia) || cantidadDiasEstadia < 0 || cantidadDiasEstadia > 36);
+
+    do{
+        formaPago = prompt("ingrese su método de pago (Efectivo/Tarjeta/QR)").toLowerCase();
                     
 
-                } while(!isNaN(formaPago) || formaPago != "efectivo" && formaPago != "tarjeta" && formaPago != "QR")
+    } while(!isNaN(formaPago) || formaPago != "efectivo" && formaPago != "tarjeta" && formaPago != "QR")
 
 
-                if(primeraVez){
-                    primeraVez = false;
-                    maxReservas = cantidadPersonas;
-                    maxNombre = nombreHuesped;
-                    maxDias = cantidadDiasEstadia;
+    if(primeraVez){
+        primeraVez = false;
+        maxReservas = cantidadPersonas;
+        maxNombre = nombreHuesped;
+        maxDias = cantidadDiasEstadia;
                 
-                } 
-                else if(cantidadPersonas > maxReservas){
+    } else if(cantidadPersonas > maxReservas){
 
-                    maxReservas = cantidadPersonas
-                    maxNombre = nombreHuesped
+            maxReservas = cantidadPersonas
+            maxNombre = nombreHuesped
 
-                } else if(cantidadDiasEstadia > maxDias){
+        } else if(cantidadDiasEstadia > maxDiasEstadia){
 
-                        maxDias = cantidadDiasEstadia
-                    }
+                maxDiasEstadia = cantidadDiasEstadia
+        } 
 
-                
-                
-
-
-
-                
-    
-              
-
-
-respuesta = confirm("Desea continuar ingresando datos?");
+   
+    respuesta = confirm("Desea continuar ingresando datos?");
 
         
 

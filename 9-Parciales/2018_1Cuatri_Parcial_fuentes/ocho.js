@@ -1,40 +1,92 @@
 function mostrar()
 {
-    var respuesta;
-    var numero;
-    var letra;
+var respuesta;
+var numero;
+var letra;
+var contador = 0;
+var contadorImpares = 0;
+var contadorCeros = 0;
+var contadorPositivos = 0; 
+var acumuladorPositivos = 0;
+var contadorNegativos = 0;
+var numeroMaximo;
+var numeroMinimo;
+var LetraMaximo;
+var LetraMinimo;
+var primeraVez = true
 
-
-    do {
-        //tomar y validar datos
+    numeroMaximo = -101
+    numeroMinimo = 101
+    
+    do{
         do{
-            numero = prompt("Ingrese un numero");
+            letra = prompt("Ingrese una letra");
+            if (letra == null ){
+                break;
+            }
+            
+            } while (!isNaN(letra));
+
+        do {
+            numero = prompt("Ingrese un número");
             numero = parseInt(numero);
-            if (numero == false){
+            if(numero == null){
                 break;
             }
 
+        } while (isNaN(numero) || numero < -100 || numero > 100);
+
+        if (numero % 2 == 0){
+
+            contador ++;
+            } else if(numero % 2 != 0){
+               
+                contadorImpares ++
+            }
+        
+        if (numero == 0){
+
+            contadorCeros ++
+            }
+
+        if (numero  > 0){
+
+            contadorPositivos ++;
+            acumuladorPositivos += numero
+            } else{
+
+            contadorNegativos ++
+            }
+
+            /*if(primeraVez){
+
+            primeraVez == false;
+            numeroMaximo = numero;
+            numeroMinimo = numero;
+            LetraMaximo = letra;
+            letraMinimo = letra;
+*/
+
+        if(numero > numeroMaximo){
+
+                numeroMaximo = numero
+                LetraMaximo = letra
+            } else if ( numero < numeroMinimo){
+
+                numeroMinimo = numero
+                LetraMinimo = letra
+            }   
+
+
+
+               
+        
+    respuesta = confirm("Desea continuar ingresando datos?") 
         
 
-        } while (isNaN(numero) || numero < - 100 || numero > 100);
-
-        do{
-            letra = prompt("Ingresa una letra");
-        } while(!isNaN(letra));
-
-        //Punto A
-
-        respuesta = confirm("Desea continuar?")
-
+    
     } while (respuesta);
 
-    if ()    
-
-
-   }
-
-
-
-
-
+alert("La cantidad de numeros pares es " + contador);    
+alert("La cantidad de numeros impares es " + contadorImpares);
 }
