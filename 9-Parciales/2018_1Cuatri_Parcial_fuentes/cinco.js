@@ -5,8 +5,11 @@ var formaPago;
 var respuesta;
 var maxReservas;
 var primeraVez = true
-var maxNombre
-var maxDiasEstadia
+var maxNombre;
+var maxDiasEstadia;
+var contadorEfectivo = 0;
+var contadorTarjeta = 0;
+var contadorQR = 0;
 
 
 function mostrar()
@@ -45,24 +48,35 @@ do{
         formaPago = prompt("ingrese su método de pago (Efectivo/Tarjeta/QR)").toLowerCase();
                     
 
-    } while(!isNaN(formaPago) || formaPago != "efectivo" && formaPago != "tarjeta" && formaPago != "QR")
+    } while(!isNaN(formaPago) || formaPago != "efectivo" && formaPago != "tarjeta" && formaPago != "qr");
 
+//Definir maximos (Dias de estadía y reservas):
 
     if(primeraVez){
         primeraVez = false;
         maxReservas = cantidadPersonas;
         maxNombre = nombreHuesped;
-        maxDias = cantidadDiasEstadia;
+        maxDiasEstadia = cantidadDiasEstadia;
                 
     } else if(cantidadPersonas > maxReservas){
 
-            maxReservas = cantidadPersonas
-            maxNombre = nombreHuesped
+            maxReservas = cantidadPersonas;
+            maxNombre = nombreHuesped;
 
         } else if(cantidadDiasEstadia > maxDiasEstadia){
 
-                maxDiasEstadia = cantidadDiasEstadia
-        } 
+                maxDiasEstadia = cantidadDiasEstadia;
+        }        
+
+    //Forma de pago más utilizada 
+    if (formaPago == "efectivo"){
+        contadorEfectivo ++;
+    } else if(formaPago == "tarjeta"){
+        contadorTarjeta ++;
+    } else {
+        contadorQR ++
+    }
+        
 
    
     respuesta = confirm("Desea continuar ingresando datos?");
@@ -71,5 +85,6 @@ do{
 
 } while (respuesta);
 
-
+alert("El huespued que trajo más personas en una sola reserva es " + maxNombre);
+alert("La cantidad de personas que se quedaron más días es de " + maxReservas + " y se quedaron " + maxDiasEstadia + " días");
 }
