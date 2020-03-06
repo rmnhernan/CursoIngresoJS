@@ -13,7 +13,8 @@ var personasMasDias;
 var maxDias = 0;
 var acumuladorDias = 0;
 var contadorReservas = 0;
-var promedoDias;
+var promedioDias;
+var stringPago;
 
 
 
@@ -43,10 +44,13 @@ function mostrar()
             formaPago = prompt("Ingrese la forma de pago");
         } while (formaPago != "efectivo" && formaPago != "tarjeta" && formaPago != "qr");
         
-        contadorReservas ++;
+
+        if (diasEstadia > 0){
         acumuladorDias += diasEstadia;
+        contadorReservas ++;
         promedioDias = acumuladorDias / contadorReservas;
-        promedioDias = parseInt(promedoDias);
+        promedioDias = parseInt(promedioDias);
+        }
         
         if (personas > maxPersonas){
             
@@ -78,7 +82,7 @@ function mostrar()
                  break;
              case "qr":
                  contadorQR ++;
-                 if(contadorEfectivo > formaPagoMasUsada){
+                 if(contadorQR > formaPagoMasUsada){
                     formaPagoMasUsada = contadorQR;
                     stringPago = formaPago;
                 }
